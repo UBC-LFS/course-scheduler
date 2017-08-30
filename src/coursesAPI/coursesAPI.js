@@ -15,7 +15,6 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
         fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            .then(result => console.log(result))
     })
 } 
 
@@ -29,7 +28,9 @@ const main = () => {
                 code,
                 courseNumbers: courseNumbers
             }
-            getSectionsForCourse(codeAndNumbers)
+            getSectionsForCourse(codeAndNumbers).then(sections => {
+                console.log(JSON.stringify(sections, null, 2))
+            })
         })
     )
 }
