@@ -13,7 +13,7 @@ const getCoursesForCode = (code) => {
 const main = () => {
     // departments.map(code => getCoursesForCode(code))
     //     .then(result => console.log(result))
-    departments.map(code => getCoursesForCode(code).then(result => console.log(result)))
+    departments.map(code => getCoursesForCode(code).then(result => console.log(JSON.stringify(result, null, 2))))
     //getCoursesForCode(departments[0]).then(result => console.log(result))
 }
 
