@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { Router } from 'express';
+import coursesAPI from './coursesAPI/coursesAPI'
 
 const routes = Router();
 
@@ -12,7 +13,7 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/courses', (req, res) => {
-  
+  coursesAPI()
 })
 
 /**
