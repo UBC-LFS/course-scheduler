@@ -1,11 +1,11 @@
 import X2JS from 'x2js'
-import * as c from './constants.js'
+import { baseURL, and, year, term, req4, req3, dept, course, output } from './constants.js'
 
 const x2js = new X2JS();
 
 const getCoursesForCode = (code) => {
     //fetch(c.baseURL + c.year + c.term + c.req4 + c.dept('APBI') + c.course(200) + c.output)
-    fetch(c.baseURL + c.and + c.year + c.and + c.term + c.and + c.req4 + c.and + c.dept('APBI') + c.and + c.course(200) + c.and + c.output)
+    fetch(baseURL + and + year + and + term + and + req4 + and + dept('APBI') + and + course(200) + and + output)
         .then(response => response.text())
         .then(text => x2js.xml2js(text))
         .then(json => console.log(json))
