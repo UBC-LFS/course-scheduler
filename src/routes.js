@@ -1,8 +1,10 @@
 import fetch from 'isomorphic-fetch'
 import { Router } from 'express';
+import X2JS from 'x2js'
 
 const routes = Router();
 
+const x2js = new X2JS();
 /**
  * GET home page
  */
@@ -14,7 +16,8 @@ routes.get('/', (req, res) => {
 routes.get('/courses', (req, res) => {
   fetch('https://courses.students.ubc.ca/cs/servlets/SRVCourseSchedule?&sessyr=2017&sesscd=W&req=4&dept=APBI&course=200&output=3')
     .then(response => response.text())
-    .then(text => console.log(text))
+    .then(text => x2js.xml2js(text))
+    .then(json => console.log(json))
 })
 
 /**
