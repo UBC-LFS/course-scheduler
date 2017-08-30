@@ -11,14 +11,16 @@ const getCoursesForCode = (code) => {
 }
 
 const main = () => {
-    // departments.map(code => getCoursesForCode(code))
-    //     .then(result => console.log(result))
-    departments.map(code => getCoursesForCode(code).then(result => console.log(JSON.stringify(result, null, 2))))
-    //getCoursesForCode(departments[0]).then(result => console.log(result))
+    departments.map(code => 
+        getCoursesForCode(code).then(courseObject => {
+            const courseNumbers = courseObject.courses.course.map(course => course._key)
+            console.log(courseNumbers)
+        })
+    )
 }
-
 
 export default main
 
 
 //'https://courses.students.ubc.ca/cs/servlets/SRVCourseSchedule?&sessyr=2017&sesscd=W&req=4&dept=APBI&course=200&output=3'
+//console.log(JSON.stringify(courses, null, 2))
