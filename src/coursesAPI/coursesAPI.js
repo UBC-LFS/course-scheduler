@@ -5,17 +5,17 @@ const x2js = new X2JS();
 
 const getCoursesForCode = (code) => {
     //fetch(baseURL + and + year + and + term + and + req4 + and + dept('APBI') + and + course(200) + and + output)
-    fetch(baseURL + and + year + and + term + and + req2 + and + dept(code) + and + output)
+    return fetch(baseURL + and + year + and + term + and + req2 + and + dept(code) + and + output)
         .then(response => response.text())
         .then(text => x2js.xml2js(text))
-        .then(json => console.log(JSON.stringify(json, null, 2)))
 }
 
 const main = () => {
-    departments.map(code => getCoursesForCode(code))
-        .then(result => console.log(result))
+    // departments.map(code => getCoursesForCode(code))
+    //     .then(result => console.log(result))
+    departments.map(code => getCoursesForCode(code).then(result => console.log(result)))
+    //getCoursesForCode(departments[0]).then(result => console.log(result))
 }
-
 
 
 export default main
