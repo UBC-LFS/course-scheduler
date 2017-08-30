@@ -1,0 +1,499 @@
+{
+    "sections": {
+      "section": [
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": [
+                  {
+                    "_term": "2",
+                    "_day": "Mon",
+                    "_starttime": "11:00",
+                    "_endtime": "12:00",
+                    "_buildingcd": "MCML",
+                    "_building": "MacMillan",
+                    "_roomno": "166"
+                  },
+                  {
+                    "_term": "2",
+                    "_day": "Wed",
+                    "_starttime": "11:00",
+                    "_endtime": "12:00",
+                    "_buildingcd": "MCML",
+                    "_building": "MacMillan",
+                    "_roomno": "166"
+                  },
+                  {
+                    "_term": "2",
+                    "_day": "Fri",
+                    "_starttime": "11:00",
+                    "_endtime": "12:00",
+                    "_buildingcd": "MCML",
+                    "_building": "MacMillan",
+                    "_roomno": "166"
+                  }
+                ]
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": {
+              "_name": "KRZIC, MAJA",
+              "_ubcid": "921412"
+            }
+          },
+          "comments": {
+            "comment": {
+              "_text": "Eleventh grade physics, chemistry and biology are strongly recommended but not mandatory."
+            }
+          },
+          "_key": "001",
+          "_activity": "Lecture",
+          "_credits": "3",
+          "_catano": "4239",
+          "_status": "Blocked",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": [
+                  {
+                    "_term": "2",
+                    "_day": "Mon",
+                    "_starttime": "11:00",
+                    "_endtime": "12:00",
+                    "_buildingcd": "SWNG",
+                    "_building": "West Mall Swing Space",
+                    "_roomno": "121"
+                  },
+                  {
+                    "_term": "2",
+                    "_day": "Wed",
+                    "_starttime": "11:00",
+                    "_endtime": "12:00",
+                    "_buildingcd": "SWNG",
+                    "_building": "West Mall Swing Space",
+                    "_roomno": "121"
+                  },
+                  {
+                    "_term": "2",
+                    "_day": "Fri",
+                    "_starttime": "11:00",
+                    "_endtime": "12:00",
+                    "_buildingcd": "SWNG",
+                    "_building": "West Mall Swing Space",
+                    "_roomno": "121"
+                  }
+                ]
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": {
+              "_name": "BROWN, SANDRA",
+              "_ubcid": "820657"
+            }
+          },
+          "comments": {
+            "comment": {
+              "_text": "Eleventh grade physics, chemistry and biology are strongly recommended but not mandatory."
+            }
+          },
+          "_key": "002",
+          "_activity": "Lecture",
+          "_credits": "3",
+          "_catano": "8967",
+          "_status": "Blocked",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": " ",
+                  "_starttime": " ",
+                  "_endtime": " ",
+                  "_buildingcd": "NSM",
+                  "_building": "NSM",
+                  "_roomno": "NSM"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": {
+              "_name": "KRZIC, MAJA",
+              "_ubcid": "921412"
+            }
+          },
+          "comments": {
+            "comment": {
+              "_text": "This is a Wait List Section for APBI 200 Sections 001 and 002. Students will be moved to the first available section, according to their priority on the waitlist if space becomes available. All queries should be directed to the Faculty of Land and Food Systems Student Services at students@landfood.ubc.ca"
+            }
+          },
+          "_key": "0W1",
+          "_activity": "Waiting List",
+          "_credits": "3",
+          "_catano": "17840",
+          "_status": " ",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Mon",
+                  "_starttime": "13:00",
+                  "_endtime": "15:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L01",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "647",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Tue",
+                  "_starttime": "10:00",
+                  "_endtime": "12:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L02",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "7638",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Tue",
+                  "_starttime": "13:00",
+                  "_endtime": "15:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L03",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "11680",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Mon",
+                  "_starttime": "15:00",
+                  "_endtime": "17:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L04",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "5753",
+          "_status": " ",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Tue",
+                  "_starttime": "15:00",
+                  "_endtime": "17:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L05",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "16993",
+          "_status": " ",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Tue",
+                  "_starttime": "8:00",
+                  "_endtime": "10:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L06",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "18293",
+          "_status": " ",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Wed",
+                  "_starttime": "9:00",
+                  "_endtime": "11:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L07",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "15819",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Wed",
+                  "_starttime": "13:00",
+                  "_endtime": "15:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L08",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "13115",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": "Wed",
+                  "_starttime": "15:00",
+                  "_endtime": "17:00",
+                  "_buildingcd": "MCML",
+                  "_building": "MacMillan",
+                  "_roomno": "102A"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "BROWN, SANDRA",
+                "_ubcid": "820657"
+              },
+              {
+                "_name": "KRZIC, MAJA",
+                "_ubcid": "921412"
+              }
+            ]
+          },
+          "_key": "L09",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "19310",
+          "_status": " ",
+          "_locationcode": "UBC"
+        }
+      ]
+    }
+  }

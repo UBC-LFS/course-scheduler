@@ -8,7 +8,7 @@ const getCoursesForCode = (code) => {
     fetch(baseURL + and + year + and + term + and + req4 + and + dept('APBI') + and + course(200) + and + output)
         .then(response => response.text())
         .then(text => x2js.xml2js(text))
-        .then(json => console.log(json))
+        .then(json => console.log(JSON.stringify(json, null, 2)))
 }
 
 export default getCoursesForCode
