@@ -14,7 +14,7 @@ const main = () => {
     departments.map(code => 
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)
-            console.log(courseNumbers)
+            console.log(code, courseNumbers)
         })
     )
 }
