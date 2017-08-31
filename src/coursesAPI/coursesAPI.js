@@ -8,6 +8,7 @@ const getCoursesForCode = (code) => {
     return fetch(baseURL + and + year + and + term + and + req2 + and + dept(code) + and + output)
         .then(response => response.text())
         .then(text => x2js.xml2js(text))
+        
 }
 
 const getSectionsForCourse = ({ code, courseNumbers }) => {
@@ -15,6 +16,7 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
         fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
+            .then(result => console.log(JSON.stringify(result, null, 2)))
     })
 } 
 
@@ -28,9 +30,10 @@ const main = () => {
                 code,
                 courseNumbers: courseNumbers
             }
-            getSectionsForCourse(codeAndNumbers).then(sections => {
-                console.log(JSON.stringify(sections, null, 2))
-            })
+            getSectionsForCourse(codeAndNumbers)
+            // .then(sections => {
+            //     console.log(JSON.stringify(sections, null, 2))
+            // })
         })
     )
 }
