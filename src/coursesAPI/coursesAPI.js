@@ -5,6 +5,7 @@ import cheerio from 'cheerio'
 
 import APBI200 from '../sampleJSON/APBI200'
 import anotherSection from '../sampleJSON/anotherSection'
+import weirdBlob from '../sampleJSON/weirdBlob'
 
 const x2js = new X2JS();
 
@@ -28,10 +29,10 @@ const getEnrolmentInfo = (code, number, section, callback) => {
 
 const parseOutSections = (sectionsBlob) => {
 
-    if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) return sectionsBlob.sections.section.map(section => section._key)
-    if (typeof sectionsBlob.sections.section._key !== 'undefined') console.log(sectionsBlob.sections.section._key)
-    // if (sectionsBlob.sections.section._key !== 'undefined') console.log(sectionsBlob.sections.section._key) 
-    // else console.log(sectionsBlob) 
+     if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) console.log(sectionsBlob.sections.section.map(section => section._key))
+     else if (typeof sectionsBlob.sections.section._key !== 'undefined') console.log('just the key', sectionsBlob.sections.section._key)
+    // if (typeof sectionsBlob.sections.section._key === 'undefined') console.log(sectionsBlob)
+    //if (typeof sectionsBlob.sections.section._key === 'undefined' || typeof sectionsBlob.sections.section === 'undefined') console.log(JSON.stringify(sectionsBlob, null, 2))
 }
 
 const getCoursesForCode = (code) => (
@@ -61,6 +62,7 @@ const main = () => {
             getSectionsForCourse(codeAndNumbers)
         })
     )
+
 
     //console.log(parseOutSections(anotherSection))
 

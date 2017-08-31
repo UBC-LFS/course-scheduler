@@ -1,0 +1,751 @@
+{
+    "sections": {
+      "section": [
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "12:30",
+                  "_endtime": "14:00",
+                  "_buildingcd": "ESB",
+                  "_building": "Earth Sciences Building",
+                  "_roomno": "1013"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "001",
+          "_activity": "Lecture",
+          "_credits": "6",
+          "_catano": "2759",
+          "_status": "Restricted",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": " ",
+                  "_endtime": " ",
+                  "_buildingcd": "NSM",
+                  "_building": "NSM",
+                  "_roomno": "NSM"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              },
+              {
+                "_name": "WITTMAN, HANNAH",
+                "_ubcid": "1415487"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "This is a Wait List Section for LFS 250 Section 001. Students will be moved according to their priority on the waitlist if space becomes available. All queries should be directed to the Faculty of Land and Food Systems Student Services at students@landfood.ubc.ca."
+            }
+          },
+          "_key": "0W1",
+          "_activity": "Waiting List",
+          "_credits": "6",
+          "_catano": "17229",
+          "_status": "Restricted",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "14:00",
+                  "_endtime": "15:30",
+                  "_buildingcd": " ",
+                  "_building": " ",
+                  "_roomno": " "
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "L01",
+          "_activity": "Laboratory",
+          "_credits": "n/a",
+          "_catano": "8403",
+          "_status": "Restricted",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "15:30",
+                  "_endtime": "17:00",
+                  "_buildingcd": "FNH",
+                  "_building": "Food, Nutrition and Health",
+                  "_roomno": "50"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T01",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "10763",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": [
+                  {
+                    "_term": "1",
+                    "_day": "Tue",
+                    "_starttime": "15:30",
+                    "_endtime": "17:00",
+                    "_buildingcd": "HENN",
+                    "_building": "Hennings",
+                    "_roomno": "304"
+                  },
+                  {
+                    "_term": "2",
+                    "_day": "Tue",
+                    "_starttime": "15:30",
+                    "_endtime": "17:00",
+                    "_buildingcd": "SWNG",
+                    "_building": "West Mall Swing Space",
+                    "_roomno": "105"
+                  }
+                ]
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T02",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "21241",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": [
+                  {
+                    "_term": "1",
+                    "_day": "Tue",
+                    "_starttime": "15:30",
+                    "_endtime": "17:00",
+                    "_buildingcd": "MCLD",
+                    "_building": "MacLeod",
+                    "_roomno": "242"
+                  },
+                  {
+                    "_term": "2",
+                    "_day": "Tue",
+                    "_starttime": "15:30",
+                    "_endtime": "17:00",
+                    "_buildingcd": "MCML",
+                    "_building": "MacMillan",
+                    "_roomno": "154"
+                  }
+                ]
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T03",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "22881",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": [
+                  {
+                    "_term": "1",
+                    "_day": "Tue",
+                    "_starttime": "15:30",
+                    "_endtime": "17:00",
+                    "_buildingcd": "FSC",
+                    "_building": "Forest Sciences Centre",
+                    "_roomno": "1613"
+                  },
+                  {
+                    "_term": "2",
+                    "_day": "Tue",
+                    "_starttime": "15:30",
+                    "_endtime": "17:00",
+                    "_buildingcd": "ORCH",
+                    "_building": "Orchard Commons",
+                    "_roomno": "3018"
+                  }
+                ]
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T04",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "22335",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "15:30",
+                  "_endtime": "17:00",
+                  "_buildingcd": "SWNG",
+                  "_building": "West Mall Swing Space",
+                  "_roomno": "407"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T05",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "3556",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "15:30",
+                  "_endtime": "17:00",
+                  "_buildingcd": "SWNG",
+                  "_building": "West Mall Swing Space",
+                  "_roomno": "309"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T06",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "8795",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "15:30",
+                  "_endtime": "17:00",
+                  "_buildingcd": "SWNG",
+                  "_building": "West Mall Swing Space",
+                  "_roomno": "107"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T07",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "2255",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "15:30",
+                  "_endtime": "17:00",
+                  "_buildingcd": "SWNG",
+                  "_building": "West Mall Swing Space",
+                  "_roomno": "409"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T08",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "19824",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "15:30",
+                  "_endtime": "17:00",
+                  "_buildingcd": "FNH",
+                  "_building": "Food, Nutrition and Health",
+                  "_roomno": "30"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T09",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "4713",
+          "_status": "Restricted",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1-2",
+                  "_day": "Tue",
+                  "_starttime": "15:30",
+                  "_endtime": "17:00",
+                  "_buildingcd": "FNH",
+                  "_building": "Food, Nutrition and Health",
+                  "_roomno": "40"
+                }
+              },
+              "_termcd": "1-2",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": [
+              {
+                "_name": "CARRILLO, JULI",
+                "_ubcid": "1779012"
+              },
+              {
+                "_name": "VALLEY, WILLIAM",
+                "_ubcid": "1357824"
+              }
+            ]
+          },
+          "comments": {
+            "comment": {
+              "_text": "Students must register in a lecture, one (1) tutorial section and a lab section for complete registration in LFS 250."
+            }
+          },
+          "_key": "T10",
+          "_activity": "Tutorial",
+          "_credits": "n/a",
+          "_catano": "19491",
+          "_status": "Full",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1",
+                  "_day": " ",
+                  "_starttime": " ",
+                  "_endtime": " ",
+                  "_buildingcd": "NSM",
+                  "_building": "NSM",
+                  "_roomno": "NSM"
+                }
+              },
+              "_termcd": "1",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Dec 01, 2017"
+            }
+          },
+          "instructors": {
+            "instructor": {
+              "_name": "FORTIN, MARIE-CLAUDE",
+              "_ubcid": "1305573"
+            }
+          },
+          "_key": "198",
+          "_activity": "Web-Oriented Course",
+          "_credits": "6",
+          "_catano": "27847",
+          "_status": "Blocked",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1",
+                  "_day": " ",
+                  "_starttime": " ",
+                  "_endtime": " ",
+                  "_buildingcd": "NSM",
+                  "_building": "NSM",
+                  "_roomno": "NSM"
+                }
+              },
+              "_termcd": "1",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Dec 01, 2017"
+            }
+          },
+          "instructors": {
+            "instructor": {
+              "_name": "FORTIN, MARIE-CLAUDE",
+              "_ubcid": "1305573"
+            }
+          },
+          "_key": "199",
+          "_activity": "Web-Oriented Course",
+          "_credits": "6",
+          "_catano": "14057",
+          "_status": "Blocked",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "1",
+                  "_day": " ",
+                  "_starttime": " ",
+                  "_endtime": " ",
+                  "_buildingcd": "NSM",
+                  "_building": "NSM",
+                  "_roomno": "NSM"
+                }
+              },
+              "_termcd": "1",
+              "_startwk": "Sep 05, 2017",
+              "_endwk": "Dec 01, 2017"
+            }
+          },
+          "_key": "1W9",
+          "_activity": "Waiting List",
+          "_credits": "6",
+          "_catano": "19489",
+          "_status": "Restricted",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": " ",
+                  "_starttime": " ",
+                  "_endtime": " ",
+                  "_buildingcd": "NSM",
+                  "_building": "NSM",
+                  "_roomno": "NSM"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "instructors": {
+            "instructor": {
+              "_name": "FORTIN, MARIE-CLAUDE",
+              "_ubcid": "1305573"
+            }
+          },
+          "_key": "298",
+          "_activity": "Web-Oriented Course",
+          "_credits": "6",
+          "_catano": "19490",
+          "_status": "Blocked",
+          "_locationcode": "UBC"
+        },
+        {
+          "teachingunits": {
+            "teachingunit": {
+              "meetings": {
+                "meeting": {
+                  "_term": "2",
+                  "_day": " ",
+                  "_starttime": " ",
+                  "_endtime": " ",
+                  "_buildingcd": "NSM",
+                  "_building": "NSM",
+                  "_roomno": "NSM"
+                }
+              },
+              "_termcd": "2",
+              "_startwk": "Jan 03, 2018",
+              "_endwk": "Apr 06, 2018"
+            }
+          },
+          "comments": {
+            "comment": {
+              "_text": "This is a Wait List Section for LFS 250 Section 298. Students will be moved according to their priority on the waitlist if space becomes available. All queries should be directed to the Faculty of Land and Food Systems Student Services at students@landfood.ubc.ca."
+            }
+          },
+          "_key": "2W9",
+          "_activity": "Waiting List",
+          "_credits": "6",
+          "_catano": "7845",
+          "_status": "Restricted",
+          "_locationcode": "UBC"
+        }
+      ]
+    }
+  }
