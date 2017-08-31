@@ -13,38 +13,40 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     const url = scrapeURL(code, number, section)
     request(url, (error, response, html) => {
         const $ = cheerio.load(html)
-
         const getNumberFromTD = (stringTerm) => {
             return $('td').filter(function(){
                 return $(this).text().trim() === stringTerm
             }).next().text()
         }
-
         const totalSeatsRemaining = getNumberFromTD('Total Seats Remaining:')
         const currentlyRegistered = getNumberFromTD('Currently Registered:')
         const generalSeatsRemaining = getNumberFromTD('General Seats Remaining:')
         const restrictedSeatsRemaining = getNumberFromTD('Restricted Seats Remaining*:')
-
         callback({ totalSeatsRemaining, currentlyRegistered, generalSeatsRemaining, restrictedSeatsRemaining })
     })
 }
 
-const parseOutSections = (sectionsBlob) => sectionsBlob.sections.section.map(section => section._key)
+const parseOutSections = (sectionsBlob) => {
 
-const getCoursesForCode = (code) => {
-    //fetch(baseURL + and + year + and + term + and + req4 + and + dept('APBI') + and + course(200) + and + output)
-    return fetch(baseURL + and + year + and + term + and + req2 + and + dept(code) + and + output)
+    if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) return sectionsBlob.sections.section.map(section => section._key)
+    if (typeof sectionsBlob.sections.section._key !== 'undefined') console.log(sectionsBlob.sections.section._key)
+    // if (sectionsBlob.sections.section._key !== 'undefined') console.log(sectionsBlob.sections.section._key) 
+    // else console.log(sectionsBlob) 
+}
+
+const getCoursesForCode = (code) => (
+    fetch(baseURL + and + year + and + term + and + req2 + and + dept(code) + and + output)
         .then(response => response.text())
         .then(text => x2js.xml2js(text))
-        
-}
+)
 
 const getSectionsForCourse = ({ code, courseNumbers }) => {
     courseNumbers.map(number => {
         fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            //.then(result => console.log(JSON.stringify(result, null, 2)))
+            .then(sectionsBlob => parseOutSections(sectionsBlob))
+            //.then(arrayOfSections => console.log(arrayOfSections))
     })
 } 
 
@@ -60,7 +62,7 @@ const main = () => {
         })
     )
 
-    console.log(parseOutSections(anotherSection))
+    //console.log(parseOutSections(anotherSection))
 
     //changeSections(APBI200)
     // getEnrolmentInfo('APBI', 200, '001', (data) => console.log('APBI200', data))
