@@ -12,17 +12,16 @@ const getCoursesForCode = (code) => {
 }
 
 const getSectionsForCourse = ({ code, courseNumbers }) => {
-    return courseNumbers.map(number => {
+    console.log('called!')
+    courseNumbers.map(number => {
         fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            .then(result => console.log(JSON.stringify(result, null, 2)))
+            //.then(result => console.log(JSON.stringify(result, null, 2)))
     })
 } 
 
 const main = () => {
-    const arrayOfCodeAndNumbers = []
-
     departments.map(code => 
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)
