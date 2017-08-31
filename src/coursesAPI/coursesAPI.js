@@ -1,7 +1,23 @@
 import X2JS from 'x2js'
 import { baseURL, and, year, term, req4, req3, req2, dept, course, output, departments } from './constants.js'
+import APBI200 from '../sampleJSON/APBI200'
 
 const x2js = new X2JS();
+
+const changeSections = (sectionObj) => {
+    sectionObj.sections.section.map(oneSection => {
+        oneSection.teachingunits.teachingunit.meetings.meeting.map(y => console.log(y))
+    })
+} 
+
+const buildJSONOutput = (code, number, sections) => {
+    const result = {
+        number: [
+            sections
+        ]
+    }
+    //console.log(JSON.stringify(sections, null, 2))
+}
 
 const getCoursesForCode = (code) => {
     //fetch(baseURL + and + year + and + term + and + req4 + and + dept('APBI') + and + course(200) + and + output)
@@ -12,12 +28,12 @@ const getCoursesForCode = (code) => {
 }
 
 const getSectionsForCourse = ({ code, courseNumbers }) => {
-    console.log('called!')
+
     courseNumbers.map(number => {
         fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            //.then(result => console.log(JSON.stringify(result, null, 2)))
+            .then(sections => buildJSONOutput(code, number, sections))
     })
 } 
 
@@ -30,11 +46,9 @@ const main = () => {
                 courseNumbers: courseNumbers
             }
             getSectionsForCourse(codeAndNumbers)
-            // .then(sections => {
-            //     console.log(JSON.stringify(sections, null, 2))
-            // })
         })
     )
+    changeSections(APBI200)
 }
 
 export default main
