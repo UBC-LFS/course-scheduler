@@ -8,7 +8,7 @@ const x2js = new X2JS();
 
 
 // scrape website for enrolment data
-const getEnrolmentInfo = (code, number, section) => {
+const getEnrolmentInfo = (code, number, section, callback) => {
     const url = scrapeURL(code, number, section)
     request(url, (error, response, html) => {
         const $ = cheerio.load(html)
@@ -24,12 +24,13 @@ const getEnrolmentInfo = (code, number, section) => {
         const generalSeatsRemaining = getNumberFromTD('General Seats Remaining:')
         const restrictedSeatsRemaining = getNumberFromTD('Restricted Seats Remaining*:')
 
-        console.log('totalSeatsRemaining', totalSeatsRemaining)
-        console.log('currentlyRegistered', currentlyRegistered)
-        console.log('generalSeatsRemaining', generalSeatsRemaining)
-        console.log('restrictedSeatsRemaining', restrictedSeatsRemaining)
+        callback({
+            totalSeatsRemaining,
+            currentlyRegistered,
+            generalSeatsRemaining,
+            restrictedSeatsRemaining
+        })
     })
-    return enrolmentInfo
 }
 
 const changeSections = (sectionObj) => {
@@ -77,7 +78,7 @@ const main = () => {
         })
     )
     //changeSections(APBI200)
-    getEnrolmentInfo('APBI', 200, '001')
+    getEnrolmentInfo('APBI', 200, '001', (data) => console.log(data))
 }
 
 export default main
