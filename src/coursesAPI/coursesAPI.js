@@ -1,12 +1,19 @@
 import X2JS from 'x2js'
-import { baseURL, and, year, term, req4, req3, req2, dept, course, output, departments } from './constants.js'
+import { baseURL, and, year, term, req4, req3, req2, dept, course, output, departments, scrapeURL } from './constants.js'
 import APBI200 from '../sampleJSON/APBI200'
+import request from 'request'
+import cheerio from 'cheerio'
 
 const x2js = new X2JS();
 
-const getEnrolmentInfo = (courseSection) => {
 
-    
+// scrape website for enrolment data
+const getEnrolmentInfo = (code, number, section) => {
+    const url = scrapeURL(code, number, section)
+    request(url, (error, response, html) => {
+        const $ = cheerio.load(html)
+        
+    })
     return enrolmentInfo
 }
 
@@ -54,7 +61,8 @@ const main = () => {
             getSectionsForCourse(codeAndNumbers)
         })
     )
-    changeSections(APBI200)
+    //changeSections(APBI200)
+    getEnrolmentInfo('APBI', 200, '001')
 }
 
 export default main

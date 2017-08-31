@@ -9,3 +9,4 @@ export const req2 = 'req=2'
 export const dept = (deptCode) => `dept=${deptCode}`
 export const course = (courseCode) => `course=${courseCode}`
 export const output = 'output=3'
+export const scrapeURL = (code, number, section) => `https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=5&dept=${code}&course=${number}&section=${section}`
