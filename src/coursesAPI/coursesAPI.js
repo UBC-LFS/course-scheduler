@@ -12,7 +12,22 @@ const getEnrolmentInfo = (code, number, section) => {
     const url = scrapeURL(code, number, section)
     request(url, (error, response, html) => {
         const $ = cheerio.load(html)
-        
+
+        const getNumberFromTD = (stringTerm) => {
+            return $('td').filter(function(){
+                return $(this).text().trim() === stringTerm
+            }).next().text()
+        }
+
+        const totalSeatsRemaining = getNumberFromTD('Total Seats Remaining:')
+        const currentlyRegistered = getNumberFromTD('Currently Registered:')
+        const generalSeatsRemaining = getNumberFromTD('General Seats Remaining:')
+        const restrictedSeatsRemaining = getNumberFromTD('Restricted Seats Remaining*:')
+
+        console.log('totalSeatsRemaining', totalSeatsRemaining)
+        console.log('currentlyRegistered', currentlyRegistered)
+        console.log('generalSeatsRemaining', generalSeatsRemaining)
+        console.log('restrictedSeatsRemaining', restrictedSeatsRemaining)
     })
     return enrolmentInfo
 }
