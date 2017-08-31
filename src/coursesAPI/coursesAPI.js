@@ -33,21 +33,22 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     })
 }
 
-const changeSections = (sectionObj) => {
-    sectionObj.sections.section.map(oneSection => {
-        oneSection.teachingunits.teachingunit.meetings.meeting.map(y => console.log(y))
-    })
-} 
+// const changeSections = (sectionObj) => {
+//     sectionObj.sections.section.map(oneSection => {
+//         oneSection.teachingunits.teachingunit.meetings.meeting.map(y => console.log(y))
+//     })
+// } 
 
-const buildJSONOutput = (code, number, sections) => {
-    const result = {
-        number: [
-            sections
-        ]
-    }
-    //console.log(JSON.stringify(sections, null, 2))
-}
+// const buildJSONOutput = (code, number, sections) => {
+//     const result = {
+//         number: [
+//             sections
+//         ]
+//     }
+//     //console.log(JSON.stringify(sections, null, 2))
+// }
 
+// gets all course numbers given a department code
 const getCoursesForCode = (code) => {
     //fetch(baseURL + and + year + and + term + and + req4 + and + dept('APBI') + and + course(200) + and + output)
     return fetch(baseURL + and + year + and + term + and + req2 + and + dept(code) + and + output)
@@ -62,7 +63,7 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
         fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            .then(sections => buildJSONOutput(code, number, sections))
+            // .then(sections => buildJSONOutput(code, number, sections))
     })
 } 
 
@@ -74,11 +75,15 @@ const main = () => {
                 code,
                 courseNumbers: courseNumbers
             }
-            getSectionsForCourse(codeAndNumbers)
+            //getSectionsForCourse(codeAndNumbers)
         })
     )
     //changeSections(APBI200)
-    getEnrolmentInfo('APBI', 200, '001', (data) => console.log(data))
+    getEnrolmentInfo('APBI', 200, '001', (data) => console.log('APBI200', data))
+    getEnrolmentInfo('LFS', 500, '001', (data) => console.log('LFS500', data))
+    getEnrolmentInfo('APBI', 398, '001', (data) => console.log('APBI398', data))
+    getEnrolmentInfo('APBI', 361, '199', (data) => console.log('APBI361', data))
+    getEnrolmentInfo('APBI', 360, '001', (data) => console.log('APBI360', data))
 }
 
 export default main
