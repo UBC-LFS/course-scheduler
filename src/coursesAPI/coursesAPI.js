@@ -4,6 +4,12 @@ import APBI200 from '../sampleJSON/APBI200'
 
 const x2js = new X2JS();
 
+const getEnrolmentInfo = (courseSection) => {
+
+    
+    return enrolmentInfo
+}
+
 const changeSections = (sectionObj) => {
     sectionObj.sections.section.map(oneSection => {
         oneSection.teachingunits.teachingunit.meetings.meeting.map(y => console.log(y))
