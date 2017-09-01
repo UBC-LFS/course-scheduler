@@ -34,33 +34,48 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
             const instructors = section.instructors
             const activity = section._activity
             const credits = section._credits
-            if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
-                section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
-                    const meetingObj = {
-                        meeting,
-                        sectionNumber,
-                        instructors,
-                        activity,
-                        credits,
-                    }
-                    console.log(meetingObj)
-                })
-            } else {
-                const meetingObj = {
-                    meeting: section.teachingunits.teachingunit.meetings.meeting,
-                    sectionNumber,
-                    instructors,
-                    activity,
-                    credits
-                }
-                console.log(meetingObj)
+            //console.log(code, number, sectionNumber)
+
+            
+            if (section.teachingunits.teachingunit.meetings.meeting === 'undefined') {
+                console.log(section.teachingunits.teachingunit.meetings)
             }
+            //console.log(section.teachingunits.teachingunit.meetings.meeting === )
+
+            
+            // if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
+            //     getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
+            //         console.log(code, number, sectionNumber)
+            //         // section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
+            //         //     //console.log(code, number, sectionNumber, meeting)
+            //         //     const meetingObj = {
+            //         //         meeting,
+            //         //         sectionNumber,
+            //         //         instructors,
+            //         //         activity,
+            //         //         credits,
+            //         //         enrolmentInfo
+            //         //     }
+            //         //     //console.log(meetingObj)
+            //         // })
+            //     })
+            // } 
+            // else {
+            //     getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
+            //         console.log(code, number, sectionNumber)
+            //         const meetingObj = {
+            //             meeting: section.teachingunits.teachingunit.meetings.meeting,
+            //             sectionNumber,
+            //             instructors,
+            //             activity,
+            //             credits,
+            //             enrolmentInfo
+            //         }
+            //         console.log(meetingObj)
+            //     })   
+                
+            // }
         })
-        // const classes = sectionsBlob.sections.section.map(section => section.teachingunits.teachingunit.meetings.meeting)
-        // const instructors = sectionsBlob.sections.section.map(section => section.instructors)
-        // const activity = sectionsBlob.sections.section.map(section => section._activity)
-        // const credits = sectionsBlob.sections.section.map(section => section._credits)
-        //console.log({sectionNumber, classes, instructors, activity, credits})
     } 
     else {
         //console.log(JSON.stringify(sectionsBlob.sections.section.teachingunits.teachingunit.meetings, null, 2))
