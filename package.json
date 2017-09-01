@@ -1,12 +1,12 @@
 {
   "name": "lfs-canvas-api",
   "version": "1.0.0",
-  "description": "Using latest JavaScript features on the server",
+  "description": "Generates CSV of dept course schedule along with enrolment data",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vmasto/express-babel.git"
+    "url": "https://github.com/UBC-LFS/course-scheduler"
   },
-  "author": "Vassilis Mastorostergios <vmasto@gmail.com>",
+  "author": "Justin Lee <justin.lee@ubc.ca",
   "license": "MIT",
   "main": "dist/index.js",
   "engines": {
@@ -99,9 +99,9 @@
     "testEnvironment": "node"
   },
   "bugs": {
-    "url": "https://github.com/vmasto/express-babel/issues"
+    "url": "https://github.com/UBC-LFS/course-scheduler/issues"
   },
-  "homepage": "https://github.com/vmasto/express-babel#readme",
+  "homepage": "https://github.com/UBC-LFS/course-scheduler/blob/master/README.md",
   "directories": {
     "test": "test"
   }
