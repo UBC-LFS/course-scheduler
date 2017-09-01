@@ -36,7 +36,7 @@ Now start the application
 ``` 
 npm start
 ``` 
-Navigate to http://localhost:8080/courses. It will run the application and output the results to output.csv in the root directory of course-scheduler.
+Navigate to http://localhost:8080/courses on your browser. It will run the application and output the results to output.csv in the root directory of course-scheduler.
 
 ## Disclaimer
 I wrote this program over a period of 3 days whenever I had some spare time. I did not have time to write tests. It seems to work properly, but I make no guarantees!
