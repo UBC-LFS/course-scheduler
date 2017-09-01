@@ -46,7 +46,7 @@ Setting the department just to AANB (Applied Animal Biology) as such:
 ```javascript
 export const departments = ['AANB']
 ```
-Returns an 'output.csv' of the following (first line is the CSV header)
+Returns an 'output.csv' of the following (first line is the CSV header). I've added "n/a" into some empty (missing) dates just for the sake of this markdown table because otherwise the formatting wasn't working properly.
 
 | dept   | course | sectionNumber | term  | day   | startTime | endTime | buildingCd | building    | roomNo | instructors | activity             | credits | totalSeatsRemaining | currentlyRegistered | generalSeatsRemaining | restrictedSeatsRemaining | termCd | startWk        | endWk          | 
 |--------|--------|---------------|-------|-------|-----------|---------|------------|-------------|--------|-------------|----------------------|---------|---------------------|---------------------|-----------------------|--------------------------|--------|----------------|----------------| 
