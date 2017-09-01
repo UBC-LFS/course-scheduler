@@ -4,8 +4,6 @@ import request from 'request'
 import cheerio from 'cheerio'
 import writeToCSV from './writeToCSV'
 
-
-
 const x2js = new X2JS();
 
 // scrape website for enrolment data
@@ -134,7 +132,6 @@ const main = () => {
             getSectionsForCourse(codeAndNumbers)
         })
     )
-    writeToCSV()
 }
 
 export default main
