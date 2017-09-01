@@ -2,7 +2,6 @@ import X2JS from 'x2js'
 import { baseURL, and, year, term, req4, req3, req2, dept, course, output, departments, scrapeURL } from './constants.js'
 import request from 'request'
 import cheerio from 'cheerio'
-import R from 'ramda'
 
 const x2js = new X2JS();
 
