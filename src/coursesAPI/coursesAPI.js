@@ -27,10 +27,10 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     })
 }
 
-const parseOutSections = (sectionsBlob) => {
-
+const parseOutSections = (sectionsBlob, code, number) => {
+    console.log("called", code, number, JSON.stringify(sectionsBlob))
      if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) console.log(sectionsBlob.sections.section.map(section => section._key))
-     else if (typeof sectionsBlob.sections.section._key !== 'undefined') console.log('just the key', sectionsBlob.sections.section._key)
+     else console.log('just the key', sectionsBlob.sections.section._key)
     // if (typeof sectionsBlob.sections.section._key === 'undefined') console.log(sectionsBlob)
     //if (typeof sectionsBlob.sections.section._key === 'undefined' || typeof sectionsBlob.sections.section === 'undefined') console.log(JSON.stringify(sectionsBlob, null, 2))
 }
@@ -43,10 +43,10 @@ const getCoursesForCode = (code) => (
 
 const getSectionsForCourse = ({ code, courseNumbers }) => {
     courseNumbers.map(number => {
-        fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
+        fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(number) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            .then(sectionsBlob => parseOutSections(sectionsBlob))
+            .then(sectionsBlob => parseOutSections(sectionsBlob, code, number))
             //.then(arrayOfSections => console.log(arrayOfSections))
     })
 } 
@@ -63,6 +63,7 @@ const main = () => {
         })
     )
 
+    //console.log(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
 
     //console.log(parseOutSections(anotherSection))
 
