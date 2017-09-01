@@ -23,69 +23,68 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     })
 }
 
+const parseOutHelper = (section, code, number, sectionNumber, instructors, activity, credits) => {
+    if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
+        getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
+            section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
+                //console.log(code, number, sectionNumber, meeting)
+                const meetingObj = {
+                    meeting,
+                    sectionNumber,
+                    instructors,
+                    activity,
+                    credits,
+                    enrolmentInfo
+                }
+                console.log(meetingObj)
+            })
+        })
+    } 
+    else {
+        getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
+            const meetingObj = {
+                meeting: section.teachingunits.teachingunit.meetings.meeting,
+                sectionNumber,
+                instructors,
+                activity,
+                credits,
+                enrolmentInfo
+            }
+            console.log(meetingObj)
+        })   
+    }
+}
+
 const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
-    // if (code === "HUNU" && number == '649') {
-    //     console.log(code, number, JSON.stringify(sectionsBlob, null, 2))
-    // }
+    // more than 1 section 
     if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) {
-        //console.log(code, number)
-        const sectionInfo= sectionsBlob.sections.section.map(section => {
+
+        const sectionInfo = sectionsBlob.sections.section.map(section => {
             const sectionNumber = section._key
             const instructors = section.instructors
             const activity = section._activity
             const credits = section._credits
-            //console.log(code, number, sectionNumber)
-
-            
-            // console.log(code, number, sectionNumber)
-            // console.log(section.teachingunits.teachingunit.meetings)
-            // console.log(section.teachingunits.teachingunit.meetings.meeting)
-
+            // for sections with NO meeting times
             if (typeof section.teachingunits.teachingunit.meetings === 'undefined') {
                 return
             }
-            if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
-                getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
-                    section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
-                        //console.log(code, number, sectionNumber, meeting)
-                        const meetingObj = {
-                            meeting,
-                            sectionNumber,
-                            instructors,
-                            activity,
-                            credits,
-                            enrolmentInfo
-                        }
-                        console.log(meetingObj)
-                    })
-                })
-            } 
-            else {
-                getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
-                    const meetingObj = {
-                        meeting: section.teachingunits.teachingunit.meetings.meeting,
-                        sectionNumber,
-                        instructors,
-                        activity,
-                        credits,
-                        enrolmentInfo
-                    }
-                    console.log(meetingObj)
-                })   
-                
-            }
+            parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits)
         })
     } 
     else {
-        //console.log(JSON.stringify(sectionsBlob.sections.section.teachingunits.teachingunit.meetings, null, 2))
-        //console.log(code, number)
-        const sectionNumber = sectionsBlob.sections.section._key
+        //only one section
+        const section = sectionsBlob.sections.section
+        const sectionNumber = section._key
+        // for sections with NO meeting times
+        if (typeof sectionsBlob.sections.section.teachingunits.teachingunit.meetings === 'undefined') {
+            return
+        }
+
         const classes = sectionsBlob.sections.section.teachingunits.teachingunit.meetings.meeting
         const instructors = sectionsBlob.sections.section.instructors
         const activity = sectionsBlob.sections.section._activity
         const credits = sectionsBlob.sections.section._credits
-        //console.log({sectionNumber, classes, instructors, activity, credits})
-
+        parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits)
     } 
 }
 
@@ -118,17 +117,6 @@ const main = () => {
                 courseNumbers: courseNumbers
             }
             getSectionsForCourse(codeAndNumbers)
-            // Promise.all(getSectionsForCourse(codeAndNumbers))
-            //     .then(arr => arr.map(obj => {
-            //         // console.log(obj)
-            //         if (Array.isArray(obj.sections)) {
-            //             obj.sections.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (enrolment) => {
-            //                 //console.log({code: obj.code, number: obj.number, sec, enrolment})
-            //             }))
-            //         } else getEnrolmentInfo(obj.code, obj.number, obj.sections, (enrolment) => {
-            //             //console.log({code:obj.code, number: obj.number, sec: obj.sections, enrolment})
-            //         })
-            //     }))
         })
     )
 }
