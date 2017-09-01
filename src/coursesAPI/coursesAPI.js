@@ -26,11 +26,10 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     })
 }
 
-const parseOutHelper = (section, code, number, sectionNumber, instructors, activity, credits) => {
+const parseOutHelper = (section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk) => {
     if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
         getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
             section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
-                //console.log(code, number, sectionNumber, meeting)
                 const meetingObj = {
                     dept: code,
                     course: number,
@@ -39,7 +38,10 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
                     instructors,
                     activity,
                     credits,
-                    enrolmentInfo
+                    enrolmentInfo,
+                    termCd,
+                    startWk,
+                    endWk
                 }
                 writeToCSV(meetingObj)
             })
@@ -55,7 +57,10 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
                 instructors,
                 activity,
                 credits,
-                enrolmentInfo
+                enrolmentInfo,
+                termCd,
+                startWk,
+                endWk
             }
             writeToCSV(meetingObj)
         })
@@ -71,11 +76,14 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
             const instructors = section.instructors
             const activity = section._activity
             const credits = section._credits
+            const termCd = section.teachingunits.teachingunit._termcd
+            const startWk = section.teachingunits.teachingunit._startwk
+            const endWk = section.teachingunits.teachingunit._endwk
             // for sections with NO meeting times
             if (typeof section.teachingunits.teachingunit.meetings === 'undefined') {
                 return
             }
-            parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits)
+            parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk)
         })
     }
     else {
@@ -87,11 +95,14 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
             return
         }
 
-        const classes = sectionsBlob.sections.section.teachingunits.teachingunit.meetings.meeting
-        const instructors = sectionsBlob.sections.section.instructors
-        const activity = sectionsBlob.sections.section._activity
-        const credits = sectionsBlob.sections.section._credits
-        parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits)
+        const classes = section.teachingunits.teachingunit.meetings.meeting
+        const instructors = section.instructors
+        const activity = section._activity
+        const credits = section._credits
+        const termCd = section.teachingunits.teachingunit._termcd
+        const startWk = section.teachingunits.teachingunit._startwk
+        const endWk = section.teachingunits.teachingunit._endwk
+        parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk)
     }
 }
 

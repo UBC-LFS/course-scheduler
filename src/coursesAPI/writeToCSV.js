@@ -1,7 +1,7 @@
 import fs from 'fs'
 import json2csv from 'json2csv'
 
-const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activity, credits, enrolmentInfo }) => {
+const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activity, credits, enrolmentInfo, termCd, startWk, endWk }) => {
     let instructorName
     if (typeof instructors === 'undefined') {
         instructorName = 'TBD'
@@ -30,14 +30,18 @@ const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activi
         totalSeatsRemaining: enrolmentInfo.totalSeatsRemaining,
         currentlyRegistered: enrolmentInfo.currentlyRegistered,
         generalSeatsRemaining: enrolmentInfo.generalSeatsRemaining,
-        restrictedSeatsRemaining: enrolmentInfo.restrictedSeatsRemaining
+        restrictedSeatsRemaining: enrolmentInfo.restrictedSeatsRemaining,
+        termCd,
+        startWk,
+        endWk
+
     }
     return flattened
 }
 
 const writeToCSV = (meetingObj) => {
     const fields = ['dept', 'course', 'sectionNumber', 'term', 'day', 'startTime', 'endTime', 'buildingCd', 'building', 'roomNo', 
-        'instructors', 'activity', 'credits', 'totalSeatsRemaining', 'currentlyRegistered', 'generalSeatsRemaining', 'restrictedSeatsRemaining']
+        'instructors', 'activity', 'credits', 'totalSeatsRemaining', 'currentlyRegistered', 'generalSeatsRemaining', 'restrictedSeatsRemaining', 'termCd', 'startWk', 'endWk']
     const flattendJSON = flattenJSON(meetingObj)
     const csv = json2csv({data: flattendJSON, fields, hasCSVColumnTitle: false})
 
