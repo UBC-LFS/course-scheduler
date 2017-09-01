@@ -102,15 +102,19 @@ const writeToCSV = (meetingObj) => {
     const fields = ['dept', 'course', 'sectionNumber', 'term', 'day', 'startTime', 'endTime', 'buildingCd', 'building', 'roomNo', 
         'instructors', 'activity', 'credits', 'totalSeatsRemaining', 'currentlyRegistered', 'generalSeatsRemaining', 'restrictedSeatsRemaining']
     const flattendJSON = flattenJSON(meetingObj)
-    const csv = json2csv({data: flattendJSON, fields})
+    const csv = json2csv({data: flattendJSON, fields, hasCSVColumnTitle: false})
+
+    console.log(csv)
 
     fs.stat('output.csv', (err, stat) => {
         if (err == null) {
-            fs.appendFile('output.csv', csv, (err) => {
+            const csvToWrite = csv + "\r\n"
+            fs.appendFile('output.csv', csvToWrite, (err) => {
                 if (err) throw err
             })
         } else {
-            fs.writeFile('output.csv', fields, (err, stat) => {
+            const fieldsToWrite = fields + "\r\n"
+            fs.writeFile('output.csv', fieldsToWrite, (err, stat) => {
                 if (err) throw err
             })
         }
