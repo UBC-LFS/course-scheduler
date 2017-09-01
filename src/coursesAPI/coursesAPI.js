@@ -132,7 +132,6 @@ const main = () => {
             getSectionsForCourse(codeAndNumbers)
         })
     )
-    console.log(baseURL + and + year + and + term + and + req4 + and + dept("AANB") + and + course(500) + and + output)
 }
 
 export default main
