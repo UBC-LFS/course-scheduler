@@ -23,9 +23,30 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     })
 }
 
-const parseOutSections = (sectionsBlob) => {
-     if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) return sectionsBlob.sections.section.map(section => section._key)
-     else return sectionsBlob.sections.section._key
+const parseOutSections = (sectionsBlob, code, number) => {
+    // if (code === "HUNU" && number == '649') {
+    //     console.log(code, number, JSON.stringify(sectionsBlob, null, 2))
+    // }
+    if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) {
+        //console.log(code, number)
+        const sectionNumber = sectionsBlob.sections.section.map(section => section._key)
+        // const classes = sectionsBlob.sections.section.map(section => section.teachingunits.teachingunit.meetings.meeting)
+        // const instructors = sectionsBlob.sections.section.map(section => section.instructors)
+        // const activity = sectionsBlob.sections.section.map(section => section._activity)
+        // const credits = sectionsBlob.sections.section.map(section => section._credits)
+        console.log({sectionNumber, classes, instructors, activity, credits})
+    } 
+    else {
+        //console.log(JSON.stringify(sectionsBlob.sections.section.teachingunits.teachingunit.meetings, null, 2))
+        //console.log(code, number)
+        const sectionNumber = sectionsBlob.sections.section._key
+        const classes = sectionsBlob.sections.section.teachingunits.teachingunit.meetings.meeting
+        const instructors = sectionsBlob.sections.section.instructors
+        const activity = sectionsBlob.sections.section._activity
+        const credits = sectionsBlob.sections.section._credits
+        //console.log({sectionNumber, classes, instructors, activity, credits})
+
+    } 
 }
 
 const getCoursesForCode = (code) => (
@@ -40,12 +61,13 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
         return fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(number) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            .then(sectionsBlob => parseOutSections(sectionsBlob))
+            .then(sectionsBlob => parseOutSections(sectionsBlob, code, number))
             .then(sections => ({code, number, sections}))
     })
 } 
 
 const main = () => {
+    console.log(baseURL + and + year + and + term + and + req4 + and + dept("HUNU") + and + course("649") + and + output)
     departments.map(code => 
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)
@@ -55,12 +77,13 @@ const main = () => {
             }
             Promise.all(getSectionsForCourse(codeAndNumbers))
                 .then(arr => arr.map(obj => {
+                    // console.log(obj)
                     if (Array.isArray(obj.sections)) {
-                        obj.sections.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (result) => {
-                            console.log(obj.code, obj.number, sec, result)
+                        obj.sections.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (enrolment) => {
+                            //console.log({code: obj.code, number: obj.number, sec, enrolment})
                         }))
-                    } else getEnrolmentInfo(obj.code, obj.number, obj.sections, (result) => {
-                        console.log(obj.code, obj.number, obj.sections, result)
+                    } else getEnrolmentInfo(obj.code, obj.number, obj.sections, (enrolment) => {
+                        //console.log({code:obj.code, number: obj.number, sec: obj.sections, enrolment})
                     })
                 }))
         })
