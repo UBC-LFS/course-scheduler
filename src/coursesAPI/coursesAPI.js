@@ -34,7 +34,6 @@ const getCoursesForCode = (code) => (
         .then(text => x2js.xml2js(text))
 )
 
-
 // returns object in this form: { code: 'GRS', number: '290', sections: ['001', '104] }
 const getSectionsForCourse = ({ code, courseNumbers }) => {
     return courseNumbers.map(number => {
@@ -69,17 +68,3 @@ const main = () => {
 }
 
 export default main
-
-
-//'https://courses.students.ubc.ca/cs/servlets/SRVCourseSchedule?&sessyr=2017&sesscd=W&req=4&dept=APBI&course=200&output=3'
-//console.log(JSON.stringify(courses, null, 2))
-
-// R.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (result) => {
-//     console.log(obj.code, obj.number, sec, result)
-// })), obj.sections)
-
-// .then(arr => arr.map(obj => 
-//     R.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (result) => {
-//         console.log(obj.code, obj.number, sec, result)
-//     }), obj.sections)
-// ))
