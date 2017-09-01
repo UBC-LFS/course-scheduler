@@ -14,21 +14,21 @@ Then, in terminal:
 cd course-scheduler
 ``` 
 Install the dependencies via NPM
-``` 
+```javascript
 npm install
 ``` 
 To run for your department, simply edit the department codes in src/coursesAPI/constants.js
-```
+```javascript
 export const departments = ['COMM']
 ```
 
 It can also take an array of dept as follows:
-```
+```javascript
 export const departments = ['AANB', 'APBI', 'FNH', 'FOOD', 'FRE', 'GRS', 'HUNU', 'LFS', 'SOIL']
 ```
 
 You may also need to change the year and term as needed
-```
+```javascript
 export const year = 'sessyr=2017'
 export const term = 'sesscd=W'
 ```
