@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/UBC-LFS/course-scheduler"
   },
-  "author": "Justin Lee <justin.lee@ubc.ca",
+  "author": "Justin Lee <justin.lee@ubc.ca>",
   "license": "MIT",
   "main": "dist/index.js",
   "engines": {
