@@ -2,6 +2,9 @@ import X2JS from 'x2js'
 import { baseURL, and, year, term, req4, req3, req2, dept, course, output, departments, scrapeURL } from './constants.js'
 import request from 'request'
 import cheerio from 'cheerio'
+import writeToCSV from './writeToCSV'
+
+
 
 const x2js = new X2JS();
 
@@ -11,7 +14,7 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     request(url, (error, response, html) => {
         const $ = cheerio.load(html)
         const getNumberFromTD = (stringTerm) => {
-            return $('td').filter(function(){
+            return $('td').filter(function () {
                 return $(this).text().trim() === stringTerm
             }).next().text()
         }
@@ -38,12 +41,12 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
                     credits,
                     enrolmentInfo
                 }
-                console.log(meetingObj)
+                //console.log(meetingObj)
             })
         })
-    } 
+    }
     else {
-        getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
+        getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
             const meetingObj = {
                 dept: code,
                 course: number,
@@ -54,8 +57,8 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
                 credits,
                 enrolmentInfo
             }
-            console.log(meetingObj)
-        })   
+            //console.log(meetingObj)
+        })
     }
 }
 
@@ -74,7 +77,7 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
             }
             parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits)
         })
-    } 
+    }
     else {
         //only one section
         const section = sectionsBlob.sections.section
@@ -89,7 +92,7 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
         const activity = sectionsBlob.sections.section._activity
         const credits = sectionsBlob.sections.section._credits
         parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits)
-    } 
+    }
 }
 
 const getCoursesForCode = (code) => (
@@ -105,12 +108,12 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
             .then(sectionsBlob => parseOutSectionsAndAddEnrolment(sectionsBlob, code, number))
-            .then(sections => ({code, number, sections}))
+            .then(sections => ({ code, number, sections }))
     })
-} 
+}
 
 const main = () => {
-    departments.map(code => 
+    departments.map(code =>
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)
             const codeAndNumbers = {
@@ -120,6 +123,7 @@ const main = () => {
             getSectionsForCourse(codeAndNumbers)
         })
     )
+    writeToCSV()
 }
 
 export default main
