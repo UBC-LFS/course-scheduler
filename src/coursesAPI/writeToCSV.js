@@ -13,7 +13,7 @@ const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activi
     } else {
         instructorName = instructors.instructor._name
     }
-    const flattened = {
+    return ({
         dept,
         course,
         sectionNumber,
@@ -34,9 +34,7 @@ const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activi
         termCd,
         startWk,
         endWk
-
-    }
-    return flattened
+    })
 }
 
 const writeToCSV = (meetingObj) => {
