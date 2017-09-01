@@ -38,6 +38,18 @@ npm start
 ``` 
 Navigate to http://localhost:8080/courses on your browser. It will run the application and output the results to output.csv in the root directory of course-scheduler.
 
+## To run application again
+To run the application again, you must delete the existing "output.csv" file AND kill the application, or else the result of the second run will get appended to the existing "output.csv" file.
+
+To kill the application
+``` 
+control + c
+``` 
+Then delete the "output.csv" and 
+``` 
+npm start
+``` 
+
 ## Disclaimer
 I wrote this program over a period of 3 days whenever I had some spare time. I did not have time to write tests. It seems to work properly, but I make no guarantees!
 
