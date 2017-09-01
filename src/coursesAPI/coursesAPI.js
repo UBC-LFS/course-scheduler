@@ -2,6 +2,7 @@ import X2JS from 'x2js'
 import { baseURL, and, year, term, req4, req3, req2, dept, course, output, departments, scrapeURL } from './constants.js'
 import request from 'request'
 import cheerio from 'cheerio'
+import R from 'ramda'
 
 const x2js = new X2JS();
 
@@ -23,7 +24,7 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     })
 }
 
-const parseOutSections = (sectionsBlob, code, number) => {
+const parseOutSections = (sectionsBlob) => {
      if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) return sectionsBlob.sections.section.map(section => section._key)
      else return sectionsBlob.sections.section._key
 }
@@ -34,13 +35,15 @@ const getCoursesForCode = (code) => (
         .then(text => x2js.xml2js(text))
 )
 
+
+// returns object in this form: { code: 'GRS', number: '290', sections: ['001', '104] }
 const getSectionsForCourse = ({ code, courseNumbers }) => {
-    courseNumbers.map(number => {
-        fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(number) + and + output)
+    return courseNumbers.map(number => {
+        return fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(number) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            .then(sectionsBlob => parseOutSections(sectionsBlob, code, number))
-            //.then(result => console.log(code, number, result))
+            .then(sectionsBlob => parseOutSections(sectionsBlob))
+            .then(sections => ({code, number, sections}))
     })
 } 
 
@@ -52,7 +55,16 @@ const main = () => {
                 code,
                 courseNumbers: courseNumbers
             }
-            getSectionsForCourse(codeAndNumbers)
+            Promise.all(getSectionsForCourse(codeAndNumbers))
+                .then(arr => arr.map(obj => {
+                    if (Array.isArray(obj.sections)) {
+                        obj.sections.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (result) => {
+                            console.log(obj.code, obj.number, sec, result)
+                        }))
+                    } else getEnrolmentInfo(obj.code, obj.number, obj.sections, (result) => {
+                        console.log(obj.code, obj.number, obj.sections, result)
+                    })
+                }))
         })
     )
 }
@@ -62,3 +74,13 @@ export default main
 
 //'https://courses.students.ubc.ca/cs/servlets/SRVCourseSchedule?&sessyr=2017&sesscd=W&req=4&dept=APBI&course=200&output=3'
 //console.log(JSON.stringify(courses, null, 2))
+
+// R.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (result) => {
+//     console.log(obj.code, obj.number, sec, result)
+// })), obj.sections)
+
+// .then(arr => arr.map(obj => 
+//     R.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (result) => {
+//         console.log(obj.code, obj.number, sec, result)
+//     }), obj.sections)
+// ))
