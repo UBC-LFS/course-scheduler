@@ -45,8 +45,6 @@ const writeToCSV = (meetingObj) => {
     const flattendJSON = flattenJSON(meetingObj)
     const csv = json2csv({data: flattendJSON, fields, hasCSVColumnTitle: false})
 
-    console.log(csv)
-
     fs.stat('output.csv', (err, stat) => {
         if (err == null) {
             const csvToWrite = csv + "\r\n"
