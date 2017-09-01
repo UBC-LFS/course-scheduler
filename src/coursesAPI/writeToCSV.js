@@ -66,7 +66,12 @@ const testJSONWithTwoInstructors = {
 
 const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activity, credits, enrolmentInfo }) => {
     let instructorName
-    if (Array.isArray(instructors.instructor)) {
+    if (typeof instructors === 'undefined') {
+        instructorName = 'TBD'
+    }
+    else if (typeof instructors.instructor === 'undefined') {
+        instructorName = 'N/A'
+    } else if (Array.isArray(instructors.instructor)) {
         instructorName = instructors.instructor.map(x => x._name + ";").join(' ')
     } else {
         instructorName = instructors.instructor._name
@@ -93,14 +98,23 @@ const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activi
     return flattened
 }
 
-const writeToCSV = () => {
-    const fields = ['dept', 'course', 'sectionNumber', 'meeting', 'instructors', 'activity', 'credits', 'enrolmentInfo']
-    console.log(flattenJSON(testJSON))
-    console.log(flattenJSON(testJSONWithTwoInstructors))
-    
-    //const toCSV = json2csv({data: testJSON, fields})
+const writeToCSV = (meetingObj) => {
+    const fields = ['dept', 'course', 'sectionNumber', 'term', 'day', 'startTime', 'endTime', 'buildingCd', 'building', 'roomNo', 
+        'instructors', 'activity', 'credits', 'totalSeatsRemaining', 'currentlyRegistered', 'generalSeatsRemaining', 'restrictedSeatsRemaining']
+    const flattendJSON = flattenJSON(meetingObj)
+    const csv = json2csv({data: flattendJSON, fields})
 
-    // console.log(toCSV)
+    fs.stat('output.csv', (err, stat) => {
+        if (err == null) {
+            fs.appendFile('output.csv', csv, (err) => {
+                if (err) throw err
+            })
+        } else {
+            fs.writeFile('output.csv', fields, (err, stat) => {
+                if (err) throw err
+            })
+        }
+    })
 }
 
 export default writeToCSV

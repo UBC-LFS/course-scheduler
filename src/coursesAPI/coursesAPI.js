@@ -41,7 +41,7 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
                     credits,
                     enrolmentInfo
                 }
-                //console.log(meetingObj)
+                writeToCSV(meetingObj)
             })
         })
     }
@@ -57,7 +57,7 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
                 credits,
                 enrolmentInfo
             }
-            //console.log(meetingObj)
+            writeToCSV(meetingObj)
         })
     }
 }
