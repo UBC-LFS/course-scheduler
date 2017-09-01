@@ -28,11 +28,9 @@ const getEnrolmentInfo = (code, number, section, callback) => {
 }
 
 const parseOutSections = (sectionsBlob, code, number) => {
-    console.log("called", code, number, JSON.stringify(sectionsBlob))
-     if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) console.log(sectionsBlob.sections.section.map(section => section._key))
-     else console.log('just the key', sectionsBlob.sections.section._key)
-    // if (typeof sectionsBlob.sections.section._key === 'undefined') console.log(sectionsBlob)
-    //if (typeof sectionsBlob.sections.section._key === 'undefined' || typeof sectionsBlob.sections.section === 'undefined') console.log(JSON.stringify(sectionsBlob, null, 2))
+    //console.log("called", code, number, JSON.stringify(sectionsBlob))
+     if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) return sectionsBlob.sections.section.map(section => section._key)
+     else return sectionsBlob.sections.section._key
 }
 
 const getCoursesForCode = (code) => (
@@ -62,17 +60,6 @@ const main = () => {
             getSectionsForCourse(codeAndNumbers)
         })
     )
-
-    //console.log(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(Number(number)) + and + output)
-
-    //console.log(parseOutSections(anotherSection))
-
-    //changeSections(APBI200)
-    // getEnrolmentInfo('APBI', 200, '001', (data) => console.log('APBI200', data))
-    // getEnrolmentInfo('LFS', 500, '001', (data) => console.log('LFS500', data))
-    // getEnrolmentInfo('APBI', 398, '001', (data) => console.log('APBI398', data))
-    // getEnrolmentInfo('APBI', 361, '199', (data) => console.log('APBI361', data))
-    // getEnrolmentInfo('APBI', 360, '001', (data) => console.log('APBI360', data))
 }
 
 export default main
