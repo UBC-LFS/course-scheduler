@@ -106,9 +106,6 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
 } 
 
 const main = () => {
-    console.log(baseURL + and + year + and + term + and + req4 + and + dept('LFS') + and + course("496B") + and + output)
-    console.log(baseURL + and + year + and + term + and + req4 + and + dept('SOIL') + and + course("530C") + and + output)
-
     departments.map(code => 
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)
