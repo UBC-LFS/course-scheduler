@@ -3,10 +3,6 @@ import { baseURL, and, year, term, req4, req3, req2, dept, course, output, depar
 import request from 'request'
 import cheerio from 'cheerio'
 
-import APBI200 from '../sampleJSON/APBI200'
-import anotherSection from '../sampleJSON/anotherSection'
-import weirdBlob from '../sampleJSON/weirdBlob'
-
 const x2js = new X2JS();
 
 // scrape website for enrolment data
@@ -44,7 +40,7 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
             .then(sectionsBlob => parseOutSections(sectionsBlob, code, number))
-            .then(result => console.log(code, number, result))
+            //.then(result => console.log(code, number, result))
     })
 } 
 
