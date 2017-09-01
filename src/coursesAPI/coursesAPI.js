@@ -37,44 +37,43 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
             //console.log(code, number, sectionNumber)
 
             
-            if (section.teachingunits.teachingunit.meetings.meeting === 'undefined') {
-                console.log(section.teachingunits.teachingunit.meetings)
-            }
-            //console.log(section.teachingunits.teachingunit.meetings.meeting === )
+            // console.log(code, number, sectionNumber)
+            // console.log(section.teachingunits.teachingunit.meetings)
+            // console.log(section.teachingunits.teachingunit.meetings.meeting)
 
-            
-            // if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
-            //     getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
-            //         console.log(code, number, sectionNumber)
-            //         // section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
-            //         //     //console.log(code, number, sectionNumber, meeting)
-            //         //     const meetingObj = {
-            //         //         meeting,
-            //         //         sectionNumber,
-            //         //         instructors,
-            //         //         activity,
-            //         //         credits,
-            //         //         enrolmentInfo
-            //         //     }
-            //         //     //console.log(meetingObj)
-            //         // })
-            //     })
-            // } 
-            // else {
-            //     getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
-            //         console.log(code, number, sectionNumber)
-            //         const meetingObj = {
-            //             meeting: section.teachingunits.teachingunit.meetings.meeting,
-            //             sectionNumber,
-            //             instructors,
-            //             activity,
-            //             credits,
-            //             enrolmentInfo
-            //         }
-            //         console.log(meetingObj)
-            //     })   
+            if (typeof section.teachingunits.teachingunit.meetings === 'undefined') {
+                return
+            }
+            if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
+                getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
+                    section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
+                        //console.log(code, number, sectionNumber, meeting)
+                        const meetingObj = {
+                            meeting,
+                            sectionNumber,
+                            instructors,
+                            activity,
+                            credits,
+                            enrolmentInfo
+                        }
+                        console.log(meetingObj)
+                    })
+                })
+            } 
+            else {
+                getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
+                    const meetingObj = {
+                        meeting: section.teachingunits.teachingunit.meetings.meeting,
+                        sectionNumber,
+                        instructors,
+                        activity,
+                        credits,
+                        enrolmentInfo
+                    }
+                    console.log(meetingObj)
+                })   
                 
-            // }
+            }
         })
     } 
     else {
@@ -108,7 +107,9 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
 } 
 
 const main = () => {
-    console.log(baseURL + and + year + and + term + and + req4 + and + dept("HUNU") + and + course("649") + and + output)
+    console.log(baseURL + and + year + and + term + and + req4 + and + dept('LFS') + and + course("496B") + and + output)
+    console.log(baseURL + and + year + and + term + and + req4 + and + dept('SOIL') + and + course("530C") + and + output)
+
     departments.map(code => 
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)
