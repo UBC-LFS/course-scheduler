@@ -29,8 +29,10 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
             section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
                 //console.log(code, number, sectionNumber, meeting)
                 const meetingObj = {
-                    meeting,
+                    dept: code,
+                    course: number,
                     sectionNumber,
+                    meeting,
                     instructors,
                     activity,
                     credits,
@@ -43,8 +45,10 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
     else {
         getEnrolmentInfo(code,number, sectionNumber, (enrolmentInfo) => {
             const meetingObj = {
-                meeting: section.teachingunits.teachingunit.meetings.meeting,
+                dept: code,
+                course: number,
                 sectionNumber,
+                meeting: section.teachingunits.teachingunit.meetings.meeting,
                 instructors,
                 activity,
                 credits,
