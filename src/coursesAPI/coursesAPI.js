@@ -23,18 +23,44 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     })
 }
 
-const parseOutSections = (sectionsBlob, code, number) => {
+const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
     // if (code === "HUNU" && number == '649') {
     //     console.log(code, number, JSON.stringify(sectionsBlob, null, 2))
     // }
     if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) {
         //console.log(code, number)
-        const sectionNumber = sectionsBlob.sections.section.map(section => section._key)
+        const sectionInfo= sectionsBlob.sections.section.map(section => {
+            const sectionNumber = section._key
+            const instructors = section.instructors
+            const activity = section._activity
+            const credits = section._credits
+            if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
+                section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
+                    const meetingObj = {
+                        meeting,
+                        sectionNumber,
+                        instructors,
+                        activity,
+                        credits,
+                    }
+                    console.log(meetingObj)
+                })
+            } else {
+                const meetingObj = {
+                    meeting: section.teachingunits.teachingunit.meetings.meeting,
+                    sectionNumber,
+                    instructors,
+                    activity,
+                    credits
+                }
+                console.log(meetingObj)
+            }
+        })
         // const classes = sectionsBlob.sections.section.map(section => section.teachingunits.teachingunit.meetings.meeting)
         // const instructors = sectionsBlob.sections.section.map(section => section.instructors)
         // const activity = sectionsBlob.sections.section.map(section => section._activity)
         // const credits = sectionsBlob.sections.section.map(section => section._credits)
-        console.log({sectionNumber, classes, instructors, activity, credits})
+        //console.log({sectionNumber, classes, instructors, activity, credits})
     } 
     else {
         //console.log(JSON.stringify(sectionsBlob.sections.section.teachingunits.teachingunit.meetings, null, 2))
@@ -61,7 +87,7 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
         return fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(number) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            .then(sectionsBlob => parseOutSections(sectionsBlob, code, number))
+            .then(sectionsBlob => parseOutSectionsAndAddEnrolment(sectionsBlob, code, number))
             .then(sections => ({code, number, sections}))
     })
 } 
@@ -75,17 +101,18 @@ const main = () => {
                 code,
                 courseNumbers: courseNumbers
             }
-            Promise.all(getSectionsForCourse(codeAndNumbers))
-                .then(arr => arr.map(obj => {
-                    // console.log(obj)
-                    if (Array.isArray(obj.sections)) {
-                        obj.sections.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (enrolment) => {
-                            //console.log({code: obj.code, number: obj.number, sec, enrolment})
-                        }))
-                    } else getEnrolmentInfo(obj.code, obj.number, obj.sections, (enrolment) => {
-                        //console.log({code:obj.code, number: obj.number, sec: obj.sections, enrolment})
-                    })
-                }))
+            getSectionsForCourse(codeAndNumbers)
+            // Promise.all(getSectionsForCourse(codeAndNumbers))
+            //     .then(arr => arr.map(obj => {
+            //         // console.log(obj)
+            //         if (Array.isArray(obj.sections)) {
+            //             obj.sections.map(sec => getEnrolmentInfo(obj.code, obj.number, sec, (enrolment) => {
+            //                 //console.log({code: obj.code, number: obj.number, sec, enrolment})
+            //             }))
+            //         } else getEnrolmentInfo(obj.code, obj.number, obj.sections, (enrolment) => {
+            //             //console.log({code:obj.code, number: obj.number, sec: obj.sections, enrolment})
+            //         })
+            //     }))
         })
     )
 }
