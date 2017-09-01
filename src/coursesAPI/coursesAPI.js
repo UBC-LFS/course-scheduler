@@ -28,7 +28,6 @@ const getEnrolmentInfo = (code, number, section, callback) => {
 }
 
 const parseOutSections = (sectionsBlob, code, number) => {
-    //console.log("called", code, number, JSON.stringify(sectionsBlob))
      if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) return sectionsBlob.sections.section.map(section => section._key)
      else return sectionsBlob.sections.section._key
 }
@@ -45,7 +44,7 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
             .then(sectionsBlob => parseOutSections(sectionsBlob, code, number))
-            //.then(arrayOfSections => console.log(arrayOfSections))
+            .then(result => console.log(code, number, result))
     })
 } 
 
