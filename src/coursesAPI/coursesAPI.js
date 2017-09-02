@@ -24,9 +24,9 @@ const getEnrolmentInfo = (code, number, section, callback) => {
     })
 }
 
-const parseOutHelper = (section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk) => {
+const parseOutHelperAndWriteToCSV = (section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk, callback) => {
     if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
-        getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
+        return getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
             section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
                 const meetingObj = {
                     dept: code,
@@ -41,12 +41,13 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
                     startWk,
                     endWk
                 }
-                writeToCSV(meetingObj)
+                //writeToCSV(meetingObj)
+                callback(meetingObj)
             })
         })
     }
     else {
-        getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
+        return getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
             const meetingObj = {
                 dept: code,
                 course: number,
@@ -60,16 +61,17 @@ const parseOutHelper = (section, code, number, sectionNumber, instructors, activ
                 startWk,
                 endWk
             }
-            writeToCSV(meetingObj)
+             //writeToCSV(meetingObj)
+             callback(meetingObj)
         })
     }
 }
 
-const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
+const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number, callback) => {
     // more than 1 section 
     if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) {
 
-        const sectionInfo = sectionsBlob.sections.section.map(section => {
+        return sectionsBlob.sections.section.map(section => {
             const sectionNumber = section._key
             const instructors = section.instructors
             const activity = section._activity
@@ -81,7 +83,9 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
             if (typeof section.teachingunits.teachingunit.meetings === 'undefined') {
                 return
             }
-            parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk)
+            parseOutHelperAndWriteToCSV(section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk, (obj) => {
+                callback(obj)
+            })
         })
     }
     else {
@@ -100,7 +104,9 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number) => {
         const termCd = section.teachingunits.teachingunit._termcd
         const startWk = section.teachingunits.teachingunit._startwk
         const endWk = section.teachingunits.teachingunit._endwk
-        parseOutHelper(section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk)
+        return parseOutHelperAndWriteToCSV(section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk, (obj) =>{
+            callback(obj)
+        })
     }
 }
 
@@ -112,12 +118,13 @@ const getCoursesForCode = (code) => (
 
 // returns object in this form: { code: 'GRS', number: '290', sections: ['001', '104] }
 const getSectionsForCourse = ({ code, courseNumbers }) => {
-    return courseNumbers.map(number => {
-        return fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(number) + and + output)
+    courseNumbers.map(number => {
+        fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(number) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
-            .then(sectionsBlob => parseOutSectionsAndAddEnrolment(sectionsBlob, code, number))
-            .then(sections => ({ code, number, sections }))
+            .then(sectionsBlob => parseOutSectionsAndAddEnrolment(sectionsBlob, code, number, (result) => {
+                writeToCSV(result)
+            }))
     })
 }
 
