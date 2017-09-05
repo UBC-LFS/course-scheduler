@@ -26,7 +26,7 @@ const getEnrolmentInfo = (code, number, section, callback) => {
 
 const parseOutHelperAndWriteToCSV = (section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk, callback) => {
     if (typeof section.teachingunits.teachingunit.meetings.meeting !== 'undefined' && section.teachingunits.teachingunit.meetings.meeting.length > 0) {
-        return getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
+        getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
             section.teachingunits.teachingunit.meetings.meeting.map(meeting => {
                 const meetingObj = {
                     dept: code,
@@ -47,7 +47,7 @@ const parseOutHelperAndWriteToCSV = (section, code, number, sectionNumber, instr
         })
     }
     else {
-        return getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
+        getEnrolmentInfo(code, number, sectionNumber, (enrolmentInfo) => {
             const meetingObj = {
                 dept: code,
                 course: number,
