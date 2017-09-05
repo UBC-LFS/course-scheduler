@@ -40,7 +40,7 @@ const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activi
 
 const writeToCSV = (meetingObj) => {
     numberCalled++
-    //console.log(numberCalled)
+    console.log(numberCalled)
     const fields = ['dept', 'course', 'sectionNumber', 'term', 'day', 'startTime', 'endTime', 'buildingCd', 'building', 'roomNo', 
         'instructors', 'activity', 'credits', 'totalSeatsRemaining', 'currentlyRegistered', 'generalSeatsRemaining', 'restrictedSeatsRemaining', 'termCd', 'startWk', 'endWk']
     const flattendJSON = flattenJSON(meetingObj)

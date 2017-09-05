@@ -71,7 +71,7 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number, callback) =
     // more than 1 section 
     if (typeof sectionsBlob.sections.section !== 'undefined' && sectionsBlob.sections.section.length > 0) {
 
-        return sectionsBlob.sections.section.map(section => {
+         sectionsBlob.sections.section.map(section => {
             const sectionNumber = section._key
             const instructors = section.instructors
             const activity = section._activity
@@ -104,7 +104,7 @@ const parseOutSectionsAndAddEnrolment = (sectionsBlob, code, number, callback) =
         const termCd = section.teachingunits.teachingunit._termcd
         const startWk = section.teachingunits.teachingunit._startwk
         const endWk = section.teachingunits.teachingunit._endwk
-        return parseOutHelperAndWriteToCSV(section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk, (obj) =>{
+         parseOutHelperAndWriteToCSV(section, code, number, sectionNumber, instructors, activity, credits, termCd, startWk, endWk, (obj) =>{
             callback(obj)
         })
     }
