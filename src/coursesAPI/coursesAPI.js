@@ -2,7 +2,8 @@ import X2JS from 'x2js'
 import { baseURL, and, year, term, req4, req3, req2, dept, course, output, departments, scrapeURL } from './constants.js'
 import request from 'request'
 import cheerio from 'cheerio'
-import writeToCSV from './writeToCSV'
+import { writeToCSV, setupHeaders } from './writeToCSV'
+import fs from 'fs'
 
 const x2js = new X2JS();
 
@@ -116,6 +117,7 @@ const getCoursesForCode = (code) => (
         .then(text => x2js.xml2js(text))
 )
 
+//let called = 0
 // returns object in this form: { code: 'GRS', number: '290', sections: ['001', '104] }
 const getSectionsForCourse = ({ code, courseNumbers }) => {
     courseNumbers.map(number => {
@@ -123,12 +125,15 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
             .then(sectionsBlob => parseOutSectionsAndAddEnrolment(sectionsBlob, code, number, (result) => {
+                //console.log("called",called)
+                //called++
                 writeToCSV(result)
             }))
     })
 }
 
 const main = () => {
+    setupHeaders()
     departments.map(code =>
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)

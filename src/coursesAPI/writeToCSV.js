@@ -1,7 +1,11 @@
 import fs from 'fs'
 import json2csv from 'json2csv'
 
-let numberCalled = 0
+
+const fields = ['dept', 'course', 'sectionNumber', 'term', 'day', 'startTime', 'endTime', 'buildingCd', 'building', 'roomNo', 
+'instructors', 'activity', 'credits', 'totalSeatsRemaining', 'currentlyRegistered', 'generalSeatsRemaining', 'restrictedSeatsRemaining', 'termCd', 'startWk', 'endWk']
+
+
 const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activity, credits, enrolmentInfo, termCd, startWk, endWk }) => {
     let instructorName
     if (typeof instructors === 'undefined') {
@@ -39,26 +43,32 @@ const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activi
 }
 
 const writeToCSV = (meetingObj) => {
-    numberCalled++
-    console.log(numberCalled)
-    const fields = ['dept', 'course', 'sectionNumber', 'term', 'day', 'startTime', 'endTime', 'buildingCd', 'building', 'roomNo', 
-        'instructors', 'activity', 'credits', 'totalSeatsRemaining', 'currentlyRegistered', 'generalSeatsRemaining', 'restrictedSeatsRemaining', 'termCd', 'startWk', 'endWk']
+
     const flattendJSON = flattenJSON(meetingObj)
     const csv = json2csv({data: flattendJSON, fields, hasCSVColumnTitle: false})
-
+    
     fs.stat('output.csv', (err, stat) => {
         if (err == null) {
             const csvToWrite = csv + "\r\n"
             fs.appendFile('output.csv', csvToWrite, (err) => {
-                if (err) throw err
-            })
-        } else {
-            const fieldsToWrite = fields + "\r\n"
-            fs.writeFile('output.csv', fieldsToWrite, (err, stat) => {
-                if (err) throw err
-            })
-        }
+                    if (err) throw err
+                })
+            } 
     })
 }
 
-export default writeToCSV
+const setupHeaders = () => {
+    
+    fs.stat('output.csv', (err, stat) => {
+        const fieldsToWrite = fields + "\r\n"
+        fs.writeFile('output.csv', fieldsToWrite, (err, stat) => {
+            if (err) throw err
+        })
+    })
+}
+
+export { 
+    writeToCSV,
+    setupHeaders
+} 
+    
