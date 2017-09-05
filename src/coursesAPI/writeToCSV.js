@@ -58,7 +58,6 @@ const writeToCSV = (meetingObj) => {
 }
 
 const setupHeaders = () => {
-    
     fs.stat('output.csv', (err, stat) => {
         const fieldsToWrite = fields + "\r\n"
         fs.writeFile('output.csv', fieldsToWrite, (err, stat) => {

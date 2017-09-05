@@ -42,7 +42,6 @@ const parseOutHelperAndWriteToCSV = (section, code, number, sectionNumber, instr
                     startWk,
                     endWk
                 }
-                //writeToCSV(meetingObj)
                 callback(meetingObj)
             })
         })
@@ -62,7 +61,6 @@ const parseOutHelperAndWriteToCSV = (section, code, number, sectionNumber, instr
                 startWk,
                 endWk
             }
-             //writeToCSV(meetingObj)
              callback(meetingObj)
         })
     }
@@ -117,7 +115,6 @@ const getCoursesForCode = (code) => (
         .then(text => x2js.xml2js(text))
 )
 
-//let called = 0
 // returns object in this form: { code: 'GRS', number: '290', sections: ['001', '104] }
 const getSectionsForCourse = ({ code, courseNumbers }) => {
     courseNumbers.map(number => {
@@ -125,8 +122,6 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
             .then(sectionsBlob => parseOutSectionsAndAddEnrolment(sectionsBlob, code, number, (result) => {
-                //console.log("called",called)
-                //called++
                 writeToCSV(result)
             }))
     })
