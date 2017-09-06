@@ -36,7 +36,7 @@ Now start the application
 ``` 
 npm start
 ``` 
-Navigate to http://localhost:8080/courses on your browser. It will run the application and output the results to output.csv in the root directory of course-scheduler.
+It will run the application and output the results to output.csv in the root directory of course-scheduler. Depending on the number of sections, it may take anywhere from a second to a minute to complete writing to the CSV. 
 
 ## To run application again
 To run the application again, you must delete the existing "output.csv" file AND kill the application, or else the result of the second run will get appended to the existing "output.csv" file.

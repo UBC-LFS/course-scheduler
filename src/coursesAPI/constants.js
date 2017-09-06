@@ -1,6 +1,6 @@
 export const baseURL = `https://courses.students.ubc.ca/cs/servlets/SRVCourseSchedule?`
-export const departments = ['AANB', 'APBI', 'FNH', 'FOOD', 'FRE', 'GRS', 'HUNU', 'LFS', 'SOIL']
-//export const departments = ['AANB']
+//export const departments = ['AANB', 'APBI', 'FNH', 'FOOD', 'FRE', 'GRS', 'HUNU', 'LFS', 'SOIL']
+export const departments = ['AANB']
 //export const departments = ['COMM']
 export const and = '&'
 export const year = 'sessyr=2017'

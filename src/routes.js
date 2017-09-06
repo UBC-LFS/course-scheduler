@@ -7,14 +7,16 @@ const routes = Router();
 /**
  * GET home page
  */
+
+
+// function that writes csv
+main()
+
 routes.get('/', (req, res) => {
   res.render('index', { title: 'Express Babel' });
   
+  
 });
-
-routes.get('/courses', (req, res) => {
-  main()
-})
 
 /**
  * GET /list
