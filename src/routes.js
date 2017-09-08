@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import { Router } from 'express';
 import { getDept, getAllDeptCodes } from './coursesAPI/coursesAPI'
+import { createFileName } from './coursesAPI/constants'
 
 const routes = Router();
 
@@ -22,7 +23,9 @@ routes.get('/deptCodes', (req, res) => {
 routes.get('/sections', (req, res) => {
   const dept = req.query.codes
   const arrayOfDepts = dept.split(' ')
-  getDept(arrayOfDepts)
+  getDept(arrayOfDepts).then(x => {
+    res.send('http://localhost:8080/output/' + createFileName(arrayOfDepts) + '.csv')
+  })
 })
 
 /**

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import json2csv from 'json2csv'
-
+import { createFileName } from './constants'
 
 const fields = ['dept', 'course', 'sectionNumber', 'term', 'day', 'startTime', 'endTime', 'buildingCd', 'building', 'roomNo', 
 'instructors', 'activity', 'credits', 'totalSeatsRemaining', 'currentlyRegistered', 'generalSeatsRemaining', 'restrictedSeatsRemaining', 'termCd', 'startWk', 'endWk']
@@ -41,8 +41,6 @@ const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activi
         endWk
     })
 }
-
-const createFileName = (arrayOfDept) => arrayOfDept.join('+')
 
 const writeToCSV = (meetingObj, arrayOfDept) => {
     const fileName = createFileName(arrayOfDept) + ".csv"
