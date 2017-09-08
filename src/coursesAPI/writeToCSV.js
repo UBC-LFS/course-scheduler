@@ -43,14 +43,12 @@ const flattenJSON = ({ dept, course, sectionNumber, meeting, instructors, activi
 }
 
 const writeToCSV = (meetingObj) => {
-    console.log(__dirname + "../../output/")
     const flattendJSON = flattenJSON(meetingObj)
     const csv = json2csv({data: flattendJSON, fields, hasCSVColumnTitle: false})
-    
-    fs.stat('output.csv', (err, stat) => {
+    fs.stat(__dirname + "/../../public/output/" + 'output.csv', (err, stat) => {
         if (err == null) {
             const csvToWrite = csv + "\r\n"
-            fs.appendFile(__dirname + "/../../output/" + 'output.csv', csvToWrite, (err) => {
+            fs.appendFile(__dirname + "/../../public/output/" + 'output.csv', csvToWrite, (err) => {
                     if (err) throw err
                 })
             } 
@@ -58,9 +56,9 @@ const writeToCSV = (meetingObj) => {
 }
 
 const setupHeaders = () => {
-    fs.stat('output.csv', (err, stat) => {
+    fs.stat(__dirname + "/../../public/output/" + 'output.csv', (err, stat) => {
         const fieldsToWrite = fields + "\r\n"
-        fs.writeFile(__dirname + "/../../output/" + 'output.csv', fieldsToWrite, (err, stat) => {
+        fs.writeFile(__dirname + "/../../public/output/" + 'output.csv', fieldsToWrite, (err, stat) => {
             if (err) throw err
         })
     })
