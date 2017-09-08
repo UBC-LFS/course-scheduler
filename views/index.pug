@@ -4,5 +4,6 @@ block content
   h1= title
   - var list = ['APBI', 'CPSC']
   each item in list 
-    input(id=item type='checkbox')= item
+    input(id=item type='checkbox')
+    label=item
   
