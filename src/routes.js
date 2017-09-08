@@ -12,15 +12,15 @@ const routes = Router();
 
 // function that writes csv
 
-routes.get('/', (req, res) => {
+routes.get('//', (req, res) => {
   res.render('index', { title: 'Course Section Generator' });
 });
 
-routes.get('/deptCodes', (req, res) => {
+routes.get('//deptCodes', (req, res) => {
   getAllDeptCodes().then(x => res.send(x))
 })
 
-routes.get('/sections', (req, res) => {
+routes.get('//sections', (req, res) => {
   const dept = req.query.codes
   const arrayOfDepts = dept.split(' ')
   getDept(arrayOfDepts).then(x => {
@@ -37,7 +37,7 @@ routes.get('/sections', (req, res) => {
  * create different/better error handlers depending on
  * your use case.
  */
-routes.get('/list', (req, res, next) => {
+routes.get('//list', (req, res, next) => {
   const { title } = req.query;
 
   if (title == null || title === '') {
