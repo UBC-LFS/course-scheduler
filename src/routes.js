@@ -13,9 +13,7 @@ const routes = Router();
 main()
 
 routes.get('/', (req, res) => {
-  res.render('index', { title: 'Express Babel' });
-  
-  
+  res.render('index', { title: 'Course Section Generator' });
 });
 
 /**
