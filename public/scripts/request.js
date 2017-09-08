@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const createDeptCheckboxes = () => {
-    fetch('http://localhost:8080/deptCodes')
+    fetch('https://ubc-course-sections.herokuapp.com/deptCodes')
         .then(response => response.json())
         .then(json => json.depts.dept.map(x => x._key))
         .then(arrayOfCodes => $('#checkboxes').selectivity({
@@ -18,7 +18,7 @@ const handleSubmit = () => {
     document.getElementById('submit').addEventListener('click', function() {
         const data = $('#checkboxes').selectivity('data')
         const codes = data.map(x => x.id)
-        fetch('http://localhost:8080/sections?codes='+codes.join('+'))
+        fetch('https://ubc-course-sections.herokuapp.com/sections?codes='+codes.join('+'))
             .then(x => x.text())
             .then(url => {
                 document.getElementById('download').innerHTML = '<h2>'  + 'Download from here!' + '</h2>'
