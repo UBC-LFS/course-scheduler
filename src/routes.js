@@ -24,7 +24,7 @@ routes.get('/sections', (req, res) => {
   const dept = req.query.codes
   const arrayOfDepts = dept.split(' ')
   getDept(arrayOfDepts).then(x => {
-    res.send('https://ubc-course-sections.herokuapp.com/output/' + createFileName(arrayOfDepts) + '.csv')
+    res.send('https://secure.landfood.ubc.ca/course-scheduler/output/' + createFileName(arrayOfDepts) + '.csv')
   })
 })
 
