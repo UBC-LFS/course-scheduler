@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { Router } from 'express';
-import main from './coursesAPI/coursesAPI'
+import { main, getAllDeptCodes } from './coursesAPI/coursesAPI'
 
 const routes = Router();
 
@@ -15,6 +15,10 @@ main()
 routes.get('/', (req, res) => {
   res.render('index', { title: 'Course Section Generator' });
 });
+
+routes.get('/deptCodes', (req, res) => {
+  getAllDeptCodes().then(x => res.send(x))
+})
 
 /**
  * GET /list

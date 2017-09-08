@@ -7,6 +7,12 @@ import fs from 'fs'
 
 const x2js = new X2JS();
 
+const getAllDeptCodes = () => {
+    return fetch('https://courses.students.ubc.ca/cs/servlets/SRVCourseSchedule?&sessyr=2017&sesscd=W&output=2')
+        .then(response => response.text())
+        .then(text => x2js.xml2js(text))
+}
+ 
 // scrape website for enrolment data
 const getEnrolmentInfo = (code, number, section, callback) => {
     const url = scrapeURL(code, number, section)
@@ -141,4 +147,7 @@ const main = () => {
     )
 }
 
-export default main
+export {
+    main,
+    getAllDeptCodes
+} 
