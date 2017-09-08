@@ -133,9 +133,9 @@ const getSectionsForCourse = ({ code, courseNumbers }) => {
     })
 }
 
-const main = () => {
+const getDept = (arrayOfDept) => {
     setupHeaders()
-    departments.map(code =>
+    arrayOfDept.map(code =>
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)
             const codeAndNumbers = {
@@ -148,6 +148,6 @@ const main = () => {
 }
 
 export {
-    main,
+    getDept,
     getAllDeptCodes
 } 

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     createDeptCheckboxes()
-
+    handleSubmit()
 });
 
 const createDeptCheckboxes = () => {
@@ -14,3 +14,11 @@ const createDeptCheckboxes = () => {
         }))
 }
 
+const handleSubmit = () => {
+    document.getElementById('submit').addEventListener('click', function() {
+        const data = $('#checkboxes').selectivity('data')
+        console.log(data)
+        const codes = data.map(x => x.id)
+        fetch('http://localhost:8080/sections?codes='+codes.join('+'))
+    })
+}

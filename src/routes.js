@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { Router } from 'express';
-import { main, getAllDeptCodes } from './coursesAPI/coursesAPI'
+import { getDept, getAllDeptCodes } from './coursesAPI/coursesAPI'
 
 const routes = Router();
 
@@ -10,7 +10,6 @@ const routes = Router();
 
 
 // function that writes csv
-main()
 
 routes.get('/', (req, res) => {
   res.render('index', { title: 'Course Section Generator' });
@@ -18,6 +17,12 @@ routes.get('/', (req, res) => {
 
 routes.get('/deptCodes', (req, res) => {
   getAllDeptCodes().then(x => res.send(x))
+})
+
+routes.get('/sections', (req, res) => {
+  const dept = req.query.codes
+  const arrayOfDepts = dept.split(' ')
+  getDept(arrayOfDepts)
 })
 
 /**
