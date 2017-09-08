@@ -3,6 +3,9 @@ html
   head
     title= title
     link(rel='stylesheet', href='/styles/style.css')
-    script(src="/scripts/request.js")
+    link(rel='stylesheet', href='/styles/selectivity-jquery.min.css')
+    script(async, src="/scripts/request.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(async, src='/scripts/selectivity-jquery.min.js')
   body
     block content
