@@ -122,19 +122,19 @@ const getCoursesForCode = (code) => (
 )
 
 // returns object in this form: { code: 'GRS', number: '290', sections: ['001', '104] }
-const getSectionsForCourse = ({ code, courseNumbers }) => {
+const getSectionsForCourse = ({ code, courseNumbers }, arrayOfDept) => {
     courseNumbers.map(number => {
         fetch(baseURL + and + year + and + term + and + req4 + and + dept(code) + and + course(number) + and + output)
             .then(response => response.text())
             .then(text => x2js.xml2js(text))
             .then(sectionsBlob => parseOutSectionsAndAddEnrolment(sectionsBlob, code, number, (result) => {
-                writeToCSV(result)
+                writeToCSV(result, arrayOfDept)
             }))
     })
 }
 
 const getDept = (arrayOfDept) => {
-    setupHeaders()
+    setupHeaders(arrayOfDept)
     arrayOfDept.map(code =>
         getCoursesForCode(code).then(courseObject => {
             const courseNumbers = courseObject.courses.course.map(course => course._key)
@@ -142,9 +142,12 @@ const getDept = (arrayOfDept) => {
                 code,
                 courseNumbers: courseNumbers
             }
-            getSectionsForCourse(codeAndNumbers)
+            getSectionsForCourse(codeAndNumbers, arrayOfDept)
         })
     )
+    // return new Promise((resolve, reject) => {
+        
+    // })
 }
 
 export {

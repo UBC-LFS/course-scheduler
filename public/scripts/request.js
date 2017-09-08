@@ -19,5 +19,7 @@ const handleSubmit = () => {
         const data = $('#checkboxes').selectivity('data')
         const codes = data.map(x => x.id)
         fetch('http://localhost:8080/sections?codes='+codes.join('+'))
+        const spinner = new Spinner().spin()
+        document.getElementById('spin').appendChild(spinner.el)
     })
 }
