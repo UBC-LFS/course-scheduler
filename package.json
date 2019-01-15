@@ -20,7 +20,9 @@
     "clean": "rimraf dist",
     "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
     "test": "jest --watch",
-    "lint": "esw -w src test"
+    "lint": "esw -w src test",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "express",
@@ -37,18 +39,19 @@
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.4.0",
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
     "es6-promise": "^4.1.1",
-    "express": "^4.15.2",
+    "express": "^4.16.0",
     "isomorphic-fetch": "^2.2.1",
     "json2csv": "^3.11.1",
-    "morgan": "^1.7.0",
-    "pug": "^2.0.0-beta11",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.0",
     "ramda": "^0.24.1",
     "request": "^2.81.0",
     "rimraf": "^2.6.1",
-    "x2js": "^3.1.1"
+    "x2js": "^3.1.1",
+    "snyk": "^1.122.0"
   },
   "devDependencies": {
     "babel-jest": "^20.0.0",
@@ -104,5 +107,6 @@
   "homepage": "https://github.com/UBC-LFS/course-scheduler/blob/master/README.md",
   "directories": {
     "test": "test"
-  }
+  },
+  "snyk": true
 }
